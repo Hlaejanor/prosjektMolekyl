@@ -1,0 +1,515 @@
+% REMEMBER TO SET LANGUAGE!
+\documentclass[a4paper,10pt,english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+% Standard stuff
+\usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry}
+% colors in text
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% Hyper refs
+\usepackage[colorlinks]{hyperref}
+
+\usepackage{caption}
+\usepackage{subcaption}
+% Document formatting
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1.5mm}
+
+%Color scheme for listings
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+%Listings configuration
+\usepackage{listings}
+%Hvis du bruker noe annet enn python, endre det her for å få riktig highlighting.
+\lstset{
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=python,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+	numbers=left,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941}
+        }
+        
+\newcounter{subproject}
+\renewcommand{\thesubproject}{\alph{subproject}}
+\newenvironment{subproj}{
+\begin{description}
+\item[\refstepcounter{subproject}(\thesubproject)]
+}{\end{description}}
+
+%Lettering instead of numbering in different layers
+%\renewcommand{\labelenumi}{\alph{enumi}}
+%\renewcommand{\thesubsection}{\alph{subsection}}
+
+%opening
+\title{FYS-MEK1110 - Prosjektoppgave}
+\author{Jens Tandstad}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section*{1}
+The Lennard Jones potential t is given by the function.
+\begin{equation}
+U(r) = 4\epsilon \left(   (\frac{\sigma}{r})^{12} -   (\frac{\sigma}{r})^6 \right)
+\end{equation}
+
+\subsection*{1a )i}
+\textbf{Plot the potential as a function of r with $\epsilon$ = 1 and $\sigma$ = 1, for example for $r \in [0.9, 3]$}
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{1a_i.jpg} 
+        \caption{Lennard Jones potential with $\epsilon = 1$ and $\sigma = 1$, }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:eksempelbilde1}
+\end{figure}
+
+\subsection*{1a )ii}
+\textbf{The behaviour of U(r) is vastly different for $r < \sigma$ and $r > \sigma$. Which term in the potential, equation (1),
+dominates in each case and what is the effect?}
+
+The term in the twelfth power $\frac{\sigma}{r}^12$ dominates for $r < \sigma$ because the powered term is $ > 1$. The high power means the value of the first term blows up quickly. When $r < \sigma$, it will be quickly diminished. When $r = \sigma$ the two terms cancel out. The effect is that for values at distance where $r > \sigma$, there is an attractive force and for $r < \sigma$ a repelled force.
+
+\subsection*{1a )iii}
+\textbf{Find and characterise the equilibrium points of the potential.
+}
+The equillibrium points can be identified by looking at the graph and finding the lowest possible value. It can also be done by solving the equation.  The equillibrium poonit must be the value of $r$, where the bonding potential can only be increased by altering the distance, i.e the force acting on the particle must be at its minimum. This must be where the derivative of the potential is 0, which happens at approximately $r = 1.1\sigma$. 
+
+We can also solve this by taking the derivative with respect to distance and setting it to zero.
+\begin{equation}
+\frac{\partial U(r)}{\partial r} = 0
+\end{equation}
+
+The derivation 
+\begin{equation}
+U(r) = 
+4\epsilon \left(   (\sigma r^{-1})^{12} -   (\sigma r^{-1})^6 \right)  
+\end{equation}
+
+\begin{equation}
+U(r) = 
+4\epsilon \left(   \sigma^{12} r^{-12} -  n \sigma^{12} r^{-6} \right) 
+\end{equation}
+
+
+\begin{equation}
+\frac{\partial U(r)}{\partial r} = 
+4\epsilon \sigma^{12} \left(   -12  r^{-13} + 6 \cdot   r^{-7} \right)
+\end{equation}
+
+Simplifying we end up with
+\begin{equation}
+\frac{\partial U(r)}{\partial r} = 
+4\epsilon \sigma \left( 2  r^{-13} -   r^{-7} \right) = 0
+\end{equation}
+
+Because $\sigma$ is a constant we can set to whatever,  we do not need to keep the $\sigma^{12}$. Also we focus on the inside of parenthesis, which must be equal to 0. Taking the lowest common denominator of the parenthesis, leaves leave us with:
+
+\begin{equation}
+2-r^6=0
+\end{equation}
+
+\begin{equation}
+\sqrt[6]{2}= r
+\end{equation}
+The equillibrium point is given by 
+
+\begin{equation}
+4\epsilon \sigma \sqrt[6]{2}
+\end{equation}
+
+
+
+
+\subsection*{1a )iv}
+\textbf{Describe qualitatively the motion of two atoms which start at rest separated by a distance of
+$1.5\sigma$. What if they start with a separation of $0.95\sigma$? (Hint: use the graph of the potential.)}
+The motion of two atoms starting at rest separated by distance of *$1.5 \sigma$ (i.e if the $\sigma$ is 1, then $r = 1.5$  will be subject to a weak negative gradient. This attraction will grow until it reaches the maximum bonding potential at around radius of $r = 1.1 \sigma$.
+If the particles in stead start at 0.95, they will move away from one another and again stabilize at the same point of maximum bonding potential.
+
+\subsection*{1a )v}
+\textbf{Describe the shape of the potential close to the stable equilibrium point. Can you think of other
+force(s) with the same behaviour?}
+
+Around the point of maximum bonding potential, the potential can be approximated by a parabolic equation, such as $x^2$. There are other forces that act in this way, including the weak and the strong nuclear force.
+
+\section*{1b) i}
+\textbf{Find the force on atom $i$ at position $\vec{r}_i$
+from atom $j$ at position $\vec{r}-j$}
+
+We can replace the radius $r$ in previous equation, with the length of the vector between the two particles. The  force acting atom $i$ at position $\vec{r_i}$ from atom $j$ at position $r_j$ must then be. 
+
+\begin{equation}
+U(r) = 4\epsilon \left(   (\frac{\sigma}{|| r_i - r_j || })^{12} -   (\frac{\sigma}{|| r_i - r_j || })^6 \right)
+\end{equation}
+
+\subsection*{ii}
+\textbf{Show that the equation of motion for atom i is...}
+
+The equation of motion, is given by the differential equation:
+
+\begin{equation}
+\vec{r}_{i+1} = r_{i} \cdot \frac{\partial r_{i}}{\partial t}
+\end{equation}
+
+We intuitively understand that the term $\frac{d r_{i}}{d t}$, change in position is the same as velocity, i.e the speed at which the particles are travelling. 
+
+The Lennard Jones potential describes the forcs  acting on a particle. These forces accelerate the particle in a particular direction. This acceleration affects velocity, which in turn affects position. In the same manner as above, we can write the equation of velocity at time $t$ as the differential equation:
+
+\begin{equation}
+\vec{v}_{i+1} = v_{i} \cdot \frac{d v_{i}}{d t}
+\end{equation}
+
+The acceleration is given by the change in the potential. The intuition is that if an atom is within the potential somewhere, the force that will be acting on it is the difference between the force acting on one side, and the other side. This must be equal to the rate of change of the potential, i.e the derivative of the potential.
+
+The term $\frac{\partial v_{i}}{\partial t}$ is here obviously the acceleration. We have these three names for the equation of \textbf{acceleration}.
+
+\begin{equation}
+ \frac{d^2 \vec{r_i}}{dt^2} =  \frac{d v_{i}}{d t}   = \vec{a}_i
+\end{equation}
+
+Let the force F be the attractive force of the potential, as a function of the distance. It is negative because the potential is attractive.
+\begin{equation}
+F = -U'(d)
+\end{equation}
+
+Deriving the Lennard Jones potential gives us
+
+\begin{equation}
+U'(d) = 4\epsilon \left( -12  (\frac{\sigma^{12}}{d^{13}}) + 6 (\frac{\sigma^6}{d^7 } \right)
+\end{equation}
+
+This can be simplified to :
+
+\begin{equation}
+U'(d) = -24\epsilon \left( -2  (\frac{\sigma^{12}}{d^{13}}) + (\frac{\sigma^6}{d^7 } \right)
+\end{equation}
+
+Which transforms to:
+
+\begin{equation}
+-U'(d) = 24\epsilon \left( 2  (\frac{\sigma^{12}}{d^{13}}) - (\frac{\sigma^6}{d^7 } \right)
+\label{eq:derivedPotential}
+\end{equation}
+
+
+This equation applies to each particles interaction with a second particle. There are $n^2$ such relations, pushing and pulling in different directions in 3D space. To properly apply this force in 3D space, we must multiply the force by the force by the unit vector pointing from the $i$-th to the $j$-th particle. This yields an acceleration vector $\vec{a_{i+1}}$ acting between particles $i$ and $j$ at a point in time. By summing these vectors over all other particles, we get the net force acting on the particle at a point $t$:
+
+\begin{equation}
+\vec{a_{i+1}} =   \sum_{j \neq i}  \left(  F(||\vec{r_i} - \vec{r_j} ||) \right)( |\vec{r_i} - \vec{r_j} |)
+\label{eq:sumPotential}
+\end{equation}
+
+Note that the $j \neq i$ avoid the particle interacting with itself.
+
+We now insert the equation from \eqref{eq:derivedPotential} into \eqref{eq:sumPotential}, and replace $d$ with $||\vec{r_i} - \vec{r_j} ||$.
+
+
+\begin{equation}
+\vec{a_{i+1}} =   \sum_{j \neq i}  \left(  
+24\epsilon \left( 2  (\frac{\sigma^{12}}{(||\vec{r_i} - \vec{r_j} ||)^{13}}) 
+- (\frac{\sigma^6}{(||\vec{r_i} - \vec{r_j} ||)^7 } \right)\right)|\vec{r_i} - \vec{r_j} |
+\label{eq:sumPotential}
+\end{equation}
+
+Almost there.  The last term - the normalized  unit vector $|\vec{r_i} - \vec{r_j} |$ , can also be written as the distance vector divided by its length:
+
+\begin{equation}
+|\vec{r_i} - \vec{r_j} | = \frac{ \vec{r_i} - \vec{r_j} }{ ||\vec{r_i} - \vec{r_j} ||}
+\end{equation}
+We will replace the last term with this. Also notice that the denominator is set to the 13th and 7th power. We can subtract one here, by squaring the denominator in the final term. This allows us to combine the powers inside the equation again, and avoid having different powers on the numerator and denominator. We have:
+
+\begin{equation}
+\vec{a_i} = \frac{d^2 r_i}{dt^2} =   \sum_{j \neq i} 24\epsilon \left( 2 (\frac{\sigma}{|| r_i - r_j||})^{12} -  (\frac{\sigma}{|| r_i - r_j||})^6 \right)(\frac{ \vec{r_i} - \vec{r_j} }{ ||\vec{r_i} - \vec{r_j} ||^2})
+\end{equation}
+
+
+\subsection*{1c)}
+
+\subsection{1c) i}
+\textbf{Introduce the scaled coordinates $\vec{r_i}'= \frac{\vec{r_i}}{\sigma}$ and show that the equation of motion can be rewritten in terms of these coordinates as}
+
+Using reduced units, this simplifies equations considerably. First We modify the acceleration equation so that the distance between atoms is measured in sigmas $\sigma$. 
+
+\begin{equation}
+\vec{a_i}  =  \frac{d^2 r_i}{dt^2}  =  \sum_{j \neq i} 24 \epsilon \sigma \left(   ( 2 || r_i - r_j ||)^{-12} -   ((|| r_i - r_j ||)^{-6} \right)(\frac{ \vec{r_i} - \vec{r_j} }{ ||\vec{r_i} - \vec{r_j} ||})
+\end{equation}
+
+Because $\epsilon$ and $\sigma$ are scalars, there must an inverse scalar to each, such such that  $\sigma \sigma=^{-1} 1$. Scaling the equation using this his allows us to set $\epsilon$ and $\sigma$ to 1, yielding:
+\begin{equation}
+ \frac{d^2 r_i'}{dt'^2}  =  \sum_{j \neq i} 24  \left(   ( 2 || r_i' - r_j' ||)^{-12} -   ((|| r_i' - r_j' ||)^{-6} \right)(\frac{ \vec{r_i}' - \vec{r_j}' }{ ||\vec{r_i}' - \vec{r_j}' ||})
+\end{equation}
+
+We removed $\epsilon$ and mass $m$ from the equation, by setting both to 1. 
+
+
+\subsection*{1c) ii}
+
+With reduced units we lose track of the the actual distances, speeds. We obtain however, a general solution for many different gases which means we can use one simulation for many types of gases. We can get the velocities,  temperature, distance in meters etc by multiplying this general reduced result with an Atom specific set of numbers. $\sigma$ gives us the distances, but what about speeds? For that we need at unit that transforms our reduced time $t'$ to seconds.
+
+There must be a scalar $\tau$, which transforms the velocity in sigma to velocity in meters per second. This relation is obviously affected by the units which the mass and energy is given in. If the units are given in pounds, $\tau$ must be different than if the units are given in metric system. By the magic of the SI unit system, this relation turns out to be the square of the \textbf{weight} of the atom (in kg)  divided by its \textbf{energy} in Electron-Volts.
+
+\begin{equation}
+\tau = \sqrt{\frac{m}{\epsilon}} = \sqrt{\frac{39.95 \cdot 1.66 \cdot 10^{-27} kg}{1.0318 \cdot 10^2 eV} }.
+\end{equation}
+
+This allows us to convert velocities measured in $\sigma$ to metric units by multiplying our time with $\tau$. 
+
+
+The charateristic time-scale 
+\begin{equation}
+\tau = \sqrt{2.93686E-11 s}
+\end{equation}
+
+
+
+
+\newpage
+\include{Section2}
+\newpage
+\include{Section3}
+\newpage
+
+
+\section*{4. Science}
+\subsection*{4a)  i }
+\textbf{ Extend your implementation with the calculation of temperature.
+}
+
+I have added the function plotTemperature to the file MDPlot.  This depends on the \textbf{ComputeTemperatureReduced} function, which essentially converts the kinetic energy (squared) to Kelvin.
+
+It used the reduced form equation, and then converts to Kelving afterwards. N is the number of particles, then :
+
+\begin{equation}
+T' = \frac{1}{3N} \sum_i  || \vec{v}_i||^2
+\end{equation}
+
+To convert $T'$ to $T$ (kelvin) we will need to find the conversion factor, given by  $T \ T_0$. To $T_0$ represents the  factor relating the Energy of the Argon gas to velocity, to temperature in Kelvin. This is done with the help of boltzmanns constant $k_b$, is used to convert from Electron-Volt (eV) units to Kelvin temperature units using the formula $\frac{\epsilon}{k_b} = K$.
+
+For Argon gas, $\epsilon = 1.0318 \cdot 10^{-2} eV $. Boltzmanns constant is always : $8.6173 \cdot 10^{-5} eV/K$. This gives us the scaling factor $T_0$ as:
+
+\begin{equation}
+T0 = \frac{\epsilon}{k_b} = \frac{ 1.0318 \cdot 10^{-2} }{8.6173 \cdot 10^{-5}} = 119.73588\dots 
+\end{equation}
+
+
+\subsection*{4a) ii }
+\textbf{Run a simulation with 108 atoms and an initial temperature of 300 K. Plot the temperature as a
+function of time}
+
+We are initializing at 300 Kelvin ang getting this result:
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4a_ii_fast.jpg} 
+        \caption{108 AR atoms in 27 cells }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:3biv}
+\end{figure}
+
+Trying a lower temperature
+
+\subsection*{4a) iii }
+\textbf{Find an initial temperature that makes the equilibrium temperature approximately equal to the
+94.4 K used in [1]. Plot the temperature as a function of time.
+}
+
+
+We are initializing at 180 Kelvin and getting this result. This is close to the 90 K. 
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4a_iii_fast.jpg} 
+        \caption{4a) iii 108 AR atoms in 27 cells  }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:3biv}
+\end{figure}
+
+
+\subsection*{4b) i}
+\textbf{Add the calculation of the velocity autocorrelation to your implementation}
+
+%I have added a function to calculate the velocity autocorrelation.
+\newpage
+\subsection*{4b) ii}
+\textbf{Run a simulation with e.g. 256 atoms (more if you can), and plot the velocity autocorrelation as
+a function of time. Compare with figure 4 of the paper}
+
+I have been able t make the following plot with Velocity Autocorrelation \ref{fig:4bii}. Compared to the Landmark study from 1964, the overall exponential fallof is the same, and stabilizing at close to 0 is also similar. However, there are some differences:
+\begin{itemize}
+\item My Autocorrelation does not fall below 0
+\item Characteristic time is not scaled
+\end{itemize}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.7\linewidth]{./py/4b_ii_velcorr.jpg} 
+  \captionof{figure}{256 AR atoms in 64 cells, starting at 1 }
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.7\linewidth]{./py/4Rahman.jpg} 
+  \captionof{figure}{Plot 4 from Rahman \cite{Rahman 1964}}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\newpage
+\subsection*{4b) iii}
+\textbf{Use the final positions and velocities from the previous simulation as initial positions and
+velocities for a new simulation, and calculate and plot the new velocity autocorrelation.}
+
+In this plot we are reading a the last frame of the calculation resulting from task 4b) ii. This allows the chart to begin immediately when the other stops. It looks similar, because what it measures, the correlation with the first frame. There will always be a correlation, and it will always be 1 in the beginning. This is a dimensionsless relation between order and chaos, and is essentially measuring the speed of entropy. For this reason, it looks very similar, even though this autocorrelations is computed from an equillibrium state. 
+
+Plotting the velocity autocorrelation:
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4b_iii.jpg} 
+        \caption{ }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4biii}
+\end{figure}
+
+
+\newpage
+\subsection*{4b) iv}
+\textbf{If your plot is very noisy (and your program does not run for too long), redo the two abovesimulations multiple times and average the velocity autocorrelation.}
+
+Rerunning the same simulation and averaging over five runs. I've noticed that my potential does not drop below 0, and I am unsure if this is correct or wrong.
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4biv_avg.jpg} 
+        \caption{4b iii) 256 AR atoms in 64 cells, averaged over 5 runs}
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4biii}
+\end{figure}
+
+
+
+
+\subsection*{4b) v}
+\textbf{Estimate the diffusion coefficient from your previously calculated velocity autocorrelation. Compare with the result from [1.}
+
+Diffusion coefficient:
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4b_v.jpg} 
+        \caption{4b iii) Diffusion coefficient}
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4bv}
+\end{figure}
+
+\newpage
+\subsection{4c) i}
+\textbf{Add the calculation of the mean squared displacement to your implementation}
+
+I decided not to implement counters in all directions, due to the complexity and slowness this imparts on the simulation. Instead, i decided to keep track of another positon vector, the displacement vector which starts at [0,0,0] and the movement is simply added to this in the same way as the x-position, except it never wraps around the periodic boundaries. It does not match the figure from A Rahman at all, probably because my particles remain within bonding reach of each other, i.e the gas is solid, whereas in Rahman the distance covered suggest that it is acting like a gas.
+
+This is an result for four Argon units and 1.5 time.
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4c_i.jpg} 
+        \caption{4b iii) Mean squared displacement}
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4bv}
+\end{figure}
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/3Rahman.jpg} 
+        \caption{4b iii) Mean squared displacement }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4bv}
+\end{figure}
+
+\newpage
+\subsection{4c) ii}
+\textbf{Implement the calculation of the diffusion constant, and run a simulation for 864 atoms (fewer
+is also fine if the runtime is slow). How does your result compare to the one in [1]?
+}
+
+Calculating the diffusion constant. It is not possible to compare a chart of th diffusion constans, as there is no such chart in the paper of A. Rahman. 
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4c_ii_diffusionConstant.jpg} 
+        \caption{4c ii) Diffusion constant }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4cii_diffusionconstant}
+\end{figure}
+
+\subsection{4d) i}
+\textbf{Run a simulation with as many atoms for as long as you can. Calculate the radial distribution
+function g(r), plot the result and compare with figure 2 of [1].}
+
+We use 12 bins, and bin the atoms in a histogram based on their distance form each other. Simulation are initialized at 190 Kelvin, time is given by  $ $seconds for 864 particles. 
+
+I am not able to reproduce the sinusoid probability density in Rahmans paper. It is possible, that this is due to the high number of particles and a relatively small box. With 864 particles and a $15^3 \sigma$ enclosure, each particle has only $3.95 \sigma^3$ of space, putting the mean distance between particles at $3.95 \sigma$. This will skew the distribution toward the left, possibly explaining the deviation from Rahman.
+
+
+
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4di_rdf_bar.jpg} 
+        \caption{4d) i : Counts for bins.  }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4di_rdf_plot}
+\end{figure}
+
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/4di_rdf_plot.jpg} 
+        \caption{4d) i : Radial distribution function plot }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:4di_rdf_plot}
+\end{figure}
+
+\begin{figure}[h!]
+        \centering 
+        %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
+        \includegraphics[scale=0.6]{./py/Rahman2.jpg} 
+        \caption{4d) i : Rahman fig 2 }
+        %Label gjør det enkelt å referere til ulike bilder.
+        \label{fig:Rahman2}
+\end{figure}
+
+Python code is available as zip file.
+
+\end{document}
