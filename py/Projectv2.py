@@ -512,27 +512,28 @@ def Task2FasterCompare2():
     MDFileWriter.WriteXYZFile(particles,"twoparticlesVelVerFast", N, 50)
   
     
-def Task4d_i_write():
+def Task4d_i_write(nGrid, sigmaDistance, initTemperature, filename ):
     
-    print("TASK : Task4b_ii_write")
-    maxTime= 3
+    print("TASK : Task4b_ii_write+ ")
+    maxTime= 2
     t, N, T = SetTime(maxTime, increments)
     
-    particles = MDGenerators.PopulateCreateCrystalStructure(6, "Ar", 1.7,  N, constants.mass, 190)
+    particles = MDGenerators.PopulateCreateCrystalStructure(nGrid, "Ar", sigmaDistance,  N, constants.mass, initTemperature)
     MDFunctions.MoveToCentreOfBox(particles)
     MDSolver.solveFaster(MDSolver.velocityVerletFast2, particles, maxTime, N)
-    MDFileWriter.WriteEverything(particles, "Task4_di_everything", N)
+    MDFileWriter.WriteEverything(particles, filename, N)
+    
     
 
-def Task4_di_read(t  = None):
-    num_bins = 15
+def Task4_di_read(t  , filename ):
+    num_bins = 10
   
-    bin_edges =  np.linspace(0, constants.box, num_bins+1)
+    bin_edges =  np.linspace(0, 5, num_bins+1)
     bin_centres = 0.5 * (bin_edges[1:] + bin_edges[:-1])
     V = constants.box**3
     
     #Read the file prepared by the previous 
-    particles, maxTindex = MDFileWriter.ReadEverything("Task4_di_everything", N)
+    particles, maxTindex = MDFileWriter.ReadEverything(filename, N)
     
     #Convert x-axis units from sigma to Ångstrøm
     bin_centres = MDFunctions.SigmaToAngstrom(bin_centres)
@@ -564,13 +565,13 @@ def Task4_di_read(t  = None):
     
     chartName = f"Ar N={count} RDF after {tInSeconds[0]:11.6} {tInSeconds[1]}"
     # def barchart(data,  xlabels, chartName, filename = "barChart"):
-    MDPlot.barchart(data, bin_centres, "RDF", chartName, "4di_rdf_bar")
+    MDPlot.barchart(data, bin_centres, "RDF", chartName, f"RDF_{filename}" )
     
     strLabels = []
-    for lb in xLabel[0]:
+    for lb in bin_centres[0]:
         strLabels.append(f"{lb:11.1f}")
    
-    MDPlot.plot(data, bin_centres, count, chartName,strLabels, "4di_rdf_plot")         
+    #MDPlot.plot(data, bin_centres, count, chartName,strLabels, "4di_rdf_plot")         
     
 
 def TemperatureStuff():
@@ -611,8 +612,14 @@ def TemperatureStuff():
 #Task4c_ii()
 
 
-Task4d_i_write()
-Task4_di_read()
+#Task4d_i_write(6, 1.7, 190, "Task4_di_everything")
+
+Task4_di_read(None, "Task4_di_everything")
+
+
+#Task4d_i_write(6, 1.7, 300, "Task4_di_everything_hot")
+
+Task4_di_read(None, "Task4_di_everything_hot")
 #TemperatureStuff()
 
 #TwoParticleTest()

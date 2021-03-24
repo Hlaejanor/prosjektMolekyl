@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.2.26)  17 MAR 2021 10:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.2.26)  17 MAR 2021 12:39
 entering extended mode
 **./FYS-MEK-prosjekt.tex
 (FYS-MEK-prosjekt.tex
@@ -465,6 +465,9 @@ LaTeX Warning: Label `fig:4bv' multiply defined.
 
 LaTeX Warning: Label `fig:4bv' multiply defined.
 
+
+LaTeX Warning: Label `fig:4di_rdf_plot' multiply defined.
+
 )
 \openout1 = `FYS-MEK-prosjekt.aux'.
 
@@ -583,7 +586,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {C:/Users/jenst/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-<1a_i.jpg, id=27, 433.62pt x 289.08pt>
+<1a_i.jpg, id=31, 433.62pt x 289.08pt>
 File: 1a_i.jpg Graphic file (type jpg)
 <use 1a_i.jpg>
 Package pdftex.def Info: 1a_i.jpg  used on input line 81.
@@ -592,7 +595,7 @@ Package pdftex.def Info: 1a_i.jpg  used on input line 81.
 \openout2 = `Section2.aux'.
 
  (Section2.tex
-<./py/two-particle-distance-15.jpg, id=97, 433.62pt x 289.08pt>
+<./py/two-particle-distance-15.jpg, id=101, 433.62pt x 289.08pt>
 File: ./py/two-particle-distance-15.jpg Graphic file (type jpg)
 <use ./py/two-particle-distance-15.jpg>
 Package pdftex.def Info: ./py/two-particle-distance-15.jpg  used on input line 
@@ -601,7 +604,7 @@ Package pdftex.def Info: ./py/two-particle-distance-15.jpg  used on input line
  [7
 
  <./py/two-particle-distance-15.jpg>]
-<./py/two-particle-distance-095.jpg, id=110, 433.62pt x 289.08pt>
+<./py/two-particle-distance-095.jpg, id=114, 433.62pt x 289.08pt>
 File: ./py/two-particle-distance-095.jpg Graphic file (type jpg)
 <use ./py/two-particle-distance-095.jpg>
 Package pdftex.def Info: ./py/two-particle-distance-095.jpg  used on input line
@@ -613,13 +616,13 @@ Package pdftex.def Info: ./py/two-particle-distance-095.jpg  used on input line
 LaTeX Warning: Reference `fig:allEnergies' on page 9 undefined on input line 55
 .
 
-<./py/2ci_allEnergiesCromer15.jpg, id=118, 433.62pt x 289.08pt>
+<./py/2ci_allEnergiesCromer15.jpg, id=122, 433.62pt x 289.08pt>
 File: ./py/2ci_allEnergiesCromer15.jpg Graphic file (type jpg)
 <use ./py/2ci_allEnergiesCromer15.jpg>
 Package pdftex.def Info: ./py/2ci_allEnergiesCromer15.jpg  used on input line 6
 0.
 (pdftex.def)             Requested size: 346.89647pt x 231.2643pt.
-<./py/2ci_allEnergiesCromer095.jpg, id=119, 433.62pt x 289.08pt>
+<./py/2ci_allEnergiesCromer095.jpg, id=123, 433.62pt x 289.08pt>
 File: ./py/2ci_allEnergiesCromer095.jpg Graphic file (type jpg)
 <use ./py/2ci_allEnergiesCromer095.jpg>
 Package pdftex.def Info: ./py/2ci_allEnergiesCromer095.jpg  used on input line 
@@ -629,7 +632,7 @@ Package pdftex.def Info: ./py/2ci_allEnergiesCromer095.jpg  used on input line
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9 <./py/2ci_allEnergiesCromer15.jpg>]
-<./py/2civ_allEnergiesEuler15.jpg, id=131, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesEuler15.jpg, id=135, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesEuler15.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesEuler15.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesEuler15.jpg  used on input line 1
@@ -639,7 +642,7 @@ Package pdftex.def Info: ./py/2civ_allEnergiesEuler15.jpg  used on input line 1
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/2civ_allEnergiesEulerCromer15.jpg, id=132, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesEulerCromer15.jpg, id=136, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesEulerCromer15.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesEulerCromer15.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesEulerCromer15.jpg  used on input 
@@ -648,7 +651,7 @@ line 109.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/2civ_allEnergiesVelocityVerlet15.jpg, id=133, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesVelocityVerlet15.jpg, id=137, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesVelocityVerlet15.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesVelocityVerlet15.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesVelocityVerlet15.jpg  used on inp
@@ -657,7 +660,7 @@ ut line 117.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/2civ_allEnergiesEuler095.jpg, id=134, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesEuler095.jpg, id=138, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesEuler095.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesEuler095.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesEuler095.jpg  used on input line 
@@ -666,7 +669,7 @@ Package pdftex.def Info: ./py/2civ_allEnergiesEuler095.jpg  used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/2civ_allEnergiesEulerCromer095.jpg, id=135, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesEulerCromer095.jpg, id=139, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesEulerCromer095.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesEulerCromer095.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesEulerCromer095.jpg  used on input
@@ -675,7 +678,7 @@ Package pdftex.def Info: ./py/2civ_allEnergiesEulerCromer095.jpg  used on input
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/2civ_allEnergiesVelocityVerlet095.jpg, id=136, 433.62pt x 289.08pt>
+<./py/2civ_allEnergiesVelocityVerlet095.jpg, id=140, 433.62pt x 289.08pt>
 File: ./py/2civ_allEnergiesVelocityVerlet095.jpg Graphic file (type jpg)
 <use ./py/2civ_allEnergiesVelocityVerlet095.jpg>
 Package pdftex.def Info: ./py/2civ_allEnergiesVelocityVerlet095.jpg  used on in
@@ -688,7 +691,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
  <./py/2civ_allEnergiesEulerCromer15.jpg>] [12 <./py/2civ_allEnergiesVelocityVe
 rlet15.jpg> <./py/2civ_allEnergiesEuler095.jpg>] [13 <./py/2civ_allEnergiesEule
 rCromer095.jpg> <./py/2civ_allEnergiesVelocityVerlet095.jpg>]
-<./py/2dii_ovito.JPG, id=164, 533.74406pt x 560.0925pt>
+<./py/2dii_ovito.JPG, id=168, 533.74406pt x 560.0925pt>
 File: ./py/2dii_ovito.JPG Graphic file (type jpg)
 <use ./py/2dii_ovito.JPG>
 Package pdftex.def Info: ./py/2dii_ovito.JPG  used on input line 185.
@@ -697,7 +700,7 @@ Package pdftex.def Info: ./py/2dii_ovito.JPG  used on input line 185.
 \openout2 = `Section3.aux'.
 
  (Section3.tex
-<./py/plotPotentialDiff.jpg, id=172, 433.62pt x 289.08pt>
+<./py/plotPotentialDiff.jpg, id=176, 433.62pt x 289.08pt>
 File: ./py/plotPotentialDiff.jpg Graphic file (type jpg)
 <use ./py/plotPotentialDiff.jpg>
 Package pdftex.def Info: ./py/plotPotentialDiff.jpg  used on input line 34.
@@ -711,7 +714,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 ]
-<./py/3biii_ovito.jpg, id=183, 581.17125pt x 563.85657pt>
+<./py/3biii_ovito.jpg, id=187, 581.17125pt x 563.85657pt>
 File: ./py/3biii_ovito.jpg Graphic file (type jpg)
 <use ./py/3biii_ovito.jpg>
 Package pdftex.def Info: ./py/3biii_ovito.jpg  used on input line 65.
@@ -720,7 +723,7 @@ Package pdftex.def Info: ./py/3biii_ovito.jpg  used on input line 65.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/3b_iv.jpg, id=184, 433.62pt x 289.08pt>
+<./py/3b_iv.jpg, id=188, 433.62pt x 289.08pt>
 File: ./py/3b_iv.jpg Graphic file (type jpg)
 <use ./py/3b_iv.jpg>
 Package pdftex.def Info: ./py/3b_iv.jpg  used on input line 81.
@@ -737,7 +740,7 @@ Overfull \vbox (0.23567pt too high) has occurred while \output is active []
 
 
 [17 <./py/3biii_ovito.jpg> <./py/3b_iv.jpg>]
-<./py/3b_v.jpg, id=200, 433.62pt x 289.08pt>
+<./py/3b_v.jpg, id=204, 433.62pt x 289.08pt>
 File: ./py/3b_v.jpg Graphic file (type jpg)
 <use ./py/3b_v.jpg>
 Package pdftex.def Info: ./py/3b_v.jpg  used on input line 96.
@@ -755,7 +758,7 @@ LaTeX Warning: Command \r invalid in math mode on input line 138.
 
 LaTeX Warning: Command \r invalid in math mode on input line 167.
 
-<./py/3di_1_ovito.jpg, id=211, 471.26062pt x 408.77719pt>
+<./py/3di_1_ovito.jpg, id=215, 471.26062pt x 408.77719pt>
 File: ./py/3di_1_ovito.jpg Graphic file (type jpg)
 <use ./py/3di_1_ovito.jpg>
 Package pdftex.def Info: ./py/3di_1_ovito.jpg  used on input line 185.
@@ -764,12 +767,12 @@ Package pdftex.def Info: ./py/3di_1_ovito.jpg  used on input line 185.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19]
-<./py/3dii_energy_two.jpg, id=225, 433.62pt x 289.08pt>
+<./py/3dii_energy_two.jpg, id=229, 433.62pt x 289.08pt>
 File: ./py/3dii_energy_two.jpg Graphic file (type jpg)
 <use ./py/3dii_energy_two.jpg>
 Package pdftex.def Info: ./py/3dii_energy_two.jpg  used on input line 202.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
-<./py/3dii_energy_four.jpg, id=226, 433.62pt x 289.08pt>
+<./py/3dii_energy_four.jpg, id=230, 433.62pt x 289.08pt>
 File: ./py/3dii_energy_four.jpg Graphic file (type jpg)
 <use ./py/3dii_energy_four.jpg>
 Package pdftex.def Info: ./py/3dii_energy_four.jpg  used on input line 210.
@@ -779,7 +782,7 @@ Package pdftex.def Info: ./py/3dii_energy_four.jpg  used on input line 210.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20 <./py/3di_1_ovito.jpg> <./py/3dii_energy_two.jpg>]
-<./py/3di_3_ovito.jpg, id=234, 651.93562pt x 529.98pt>
+<./py/3di_3_ovito.jpg, id=238, 651.93562pt x 529.98pt>
 File: ./py/3di_3_ovito.jpg Graphic file (type jpg)
 <use ./py/3di_3_ovito.jpg>
 Package pdftex.def Info: ./py/3di_3_ovito.jpg  used on input line 235.
@@ -788,7 +791,7 @@ Package pdftex.def Info: ./py/3di_3_ovito.jpg  used on input line 235.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./py/3di_2_ovito.jpg, id=235, 572.89032pt x 479.54156pt>
+<./py/3di_2_ovito.jpg, id=239, 572.89032pt x 479.54156pt>
 File: ./py/3di_2_ovito.jpg Graphic file (type jpg)
 <use ./py/3di_2_ovito.jpg>
 Package pdftex.def Info: ./py/3di_2_ovito.jpg  used on input line 245.
@@ -798,7 +801,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) [21 <./py/3dii_energy_four.jpg>] [22 <./py/3di_3_ovito.jpg>] [23 <./py/3di_2_
 ovito.jpg>]
-<./py/4a_ii_fast.jpg, id=253, 433.62pt x 289.08pt>
+<./py/4a_ii_fast.jpg, id=257, 433.62pt x 289.08pt>
 File: ./py/4a_ii_fast.jpg Graphic file (type jpg)
 <use ./py/4a_ii_fast.jpg>
 Package pdftex.def Info: ./py/4a_ii_fast.jpg  used on input line 325.
@@ -807,7 +810,7 @@ Package pdftex.def Info: ./py/4a_ii_fast.jpg  used on input line 325.
 
 
  <./py/4a_ii_fast.jpg>]
-<./py/4a_iii_fast.jpg, id=264, 433.62pt x 289.08pt>
+<./py/4a_iii_fast.jpg, id=268, 433.62pt x 289.08pt>
 File: ./py/4a_iii_fast.jpg Graphic file (type jpg)
 <use ./py/4a_iii_fast.jpg>
 Package pdftex.def Info: ./py/4a_iii_fast.jpg  used on input line 343.
@@ -816,94 +819,111 @@ Package pdftex.def Info: ./py/4a_iii_fast.jpg  used on input line 343.
 
 LaTeX Warning: Reference `fig:4bii' on page 26 undefined on input line 359.
 
-<./py/4b_ii_velcorr.jpg, id=273, 433.62pt x 289.08pt>
+
+! LaTeX Error: \begin{document} ended by \end{itemize}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.361 \end{itemize}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.361 \end{itemize}
+                   
+Things are pretty mixed up, but I think the worst is over.
+
+<./py/4b_ii_velcorr.jpg, id=277, 433.62pt x 289.08pt>
 File: ./py/4b_ii_velcorr.jpg Graphic file (type jpg)
 <use ./py/4b_ii_velcorr.jpg>
-Package pdftex.def Info: ./py/4b_ii_velcorr.jpg  used on input line 369.
+Package pdftex.def Info: ./py/4b_ii_velcorr.jpg  used on input line 367.
 (pdftex.def)             Requested size: 146.38814pt x 97.59337pt.
-<./py/4Rahman.jpg, id=274, 327.47343pt x 391.4625pt>
+<./py/4Rahman.jpg, id=278, 327.47343pt x 391.4625pt>
 File: ./py/4Rahman.jpg Graphic file (type jpg)
 <use ./py/4Rahman.jpg>
-Package pdftex.def Info: ./py/4Rahman.jpg  used on input line 375.
+Package pdftex.def Info: ./py/4Rahman.jpg  used on input line 373.
 (pdftex.def)             Requested size: 146.38814pt x 174.99171pt.
 
-LaTeX Warning: Citation `Rahman 1964' on page 26 undefined on input line 376.
+LaTeX Warning: Citation `Rahman 1964' on page 26 undefined on input line 374.
 
 
-LaTeX Warning: Citation `Rahman 1964' on page 26 undefined on input line 376.
+LaTeX Warning: Citation `Rahman 1964' on page 26 undefined on input line 374.
 
 [26 <./py/4b_ii_velcorr.jpg> <./py/4Rahman.jpg>]
-<./py/4b_iii.jpg, id=282, 433.62pt x 289.08pt>
+<./py/4b_iii.jpg, id=285, 433.62pt x 289.08pt>
 File: ./py/4b_iii.jpg Graphic file (type jpg)
 <use ./py/4b_iii.jpg>
-Package pdftex.def Info: ./py/4b_iii.jpg  used on input line 393.
+Package pdftex.def Info: ./py/4b_iii.jpg  used on input line 391.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
  [27 <./py/4b_iii.jpg>]
-<./py/4biv_avg.jpg, id=289, 433.62pt x 289.08pt>
+<./py/4biv_avg.jpg, id=292, 433.62pt x 289.08pt>
 File: ./py/4biv_avg.jpg Graphic file (type jpg)
 <use ./py/4biv_avg.jpg>
-Package pdftex.def Info: ./py/4biv_avg.jpg  used on input line 409.
+Package pdftex.def Info: ./py/4biv_avg.jpg  used on input line 407.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
-<./py/4b_v.jpg, id=290, 433.62pt x 289.08pt>
+<./py/4b_v.jpg, id=293, 433.62pt x 289.08pt>
 File: ./py/4b_v.jpg Graphic file (type jpg)
 <use ./py/4b_v.jpg>
-Package pdftex.def Info: ./py/4b_v.jpg  used on input line 426.
+Package pdftex.def Info: ./py/4b_v.jpg  used on input line 424.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
 
 [28 <./py/4biv_avg.jpg> <./py/4b_v.jpg>]
-<./py/4c_i.jpg, id=299, 433.62pt x 289.08pt>
+<./py/4c_i.jpg, id=302, 433.62pt x 289.08pt>
 File: ./py/4c_i.jpg Graphic file (type jpg)
 <use ./py/4c_i.jpg>
-Package pdftex.def Info: ./py/4c_i.jpg  used on input line 442.
+Package pdftex.def Info: ./py/4c_i.jpg  used on input line 440.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
-<./py/3Rahman.jpg, id=300, 333.49594pt x 402.75468pt>
+<./py/3Rahman.jpg, id=303, 333.49594pt x 402.75468pt>
 File: ./py/3Rahman.jpg Graphic file (type jpg)
 <use ./py/3Rahman.jpg>
-Package pdftex.def Info: ./py/3Rahman.jpg  used on input line 451.
+Package pdftex.def Info: ./py/3Rahman.jpg  used on input line 449.
 (pdftex.def)             Requested size: 200.09909pt x 241.65466pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [29 <./py/4c_i.jpg>]
-<./py/4c_ii_diffusionConstant.jpg, id=306, 433.62pt x 289.08pt>
+<./py/4c_ii_diffusionConstant.jpg, id=309, 433.62pt x 289.08pt>
 File: ./py/4c_ii_diffusionConstant.jpg Graphic file (type jpg)
 <use ./py/4c_ii_diffusionConstant.jpg>
 Package pdftex.def Info: ./py/4c_ii_diffusionConstant.jpg  used on input line 4
-68.
+66.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
  [30 <./py/3Rahman.jpg> <./py/4c_ii_diffusionConstant.jpg>]
 
-LaTeX Warning: File `./py/4di_rdf_bar.jpg' not found on input line 488.
+LaTeX Warning: Command \r invalid in math mode on input line 478.
 
 
-! Package pdftex.def Error: File `./py/4di_rdf_bar.jpg' not found: using draft 
-setting.
+LaTeX Warning: Command \r invalid in math mode on input line 478.
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.488 ...graphics[scale=0.6]{./py/4di_rdf_bar.jpg}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<./py/4di_rdf_plot.jpg, id=313, 433.62pt x 289.08pt>
-File: ./py/4di_rdf_plot.jpg Graphic file (type jpg)
-<use ./py/4di_rdf_plot.jpg>
-Package pdftex.def Info: ./py/4di_rdf_plot.jpg  used on input line 498.
+<./py/RDF_Task4_di_everything_hot.jpg, id=316, 433.62pt x 289.08pt>
+File: ./py/RDF_Task4_di_everything_hot.jpg Graphic file (type jpg)
+<use ./py/RDF_Task4_di_everything_hot.jpg>
+Package pdftex.def Info: ./py/RDF_Task4_di_everything_hot.jpg  used on input li
+ne 486.
 (pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
-<./py/Rahman2.jpg, id=314, 365.86688pt x 465.99094pt>
+<./py/RDF_Task4_di_everything.jpg, id=317, 433.62pt x 289.08pt>
+File: ./py/RDF_Task4_di_everything.jpg Graphic file (type jpg)
+<use ./py/RDF_Task4_di_everything.jpg>
+Package pdftex.def Info: ./py/RDF_Task4_di_everything.jpg  used on input line 4
+96.
+(pdftex.def)             Requested size: 260.17401pt x 173.44933pt.
+<./py/Rahman2.jpg, id=318, 365.86688pt x 465.99094pt>
 File: ./py/Rahman2.jpg Graphic file (type jpg)
 <use ./py/Rahman2.jpg>
-Package pdftex.def Info: ./py/Rahman2.jpg  used on input line 507.
-(pdftex.def)             Requested size: 219.52182pt x 279.59671pt.
+Package pdftex.def Info: ./py/Rahman2.jpg  used on input line 504.
+(pdftex.def)             Requested size: 329.27715pt x 419.38795pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31 <./py/4di_rdf_plot.jpg>] [32 <./py/Rahman2.jpg>] (FYS-MEK-prosjekt.aux
-(Section2.aux) (Section3.aux))
+[31 <./py/RDF_Task4_di_everything_hot.jpg> <./py/RDF_Task4_di_everything.jpg>]
+[32 <./py/Rahman2.jpg>] (FYS-MEK-prosjekt.aux (Section2.aux) (Section3.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -911,37 +931,35 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `FYS-MEK-prosjekt.out' has not changed.
-(rerunfilecheck)             Checksum: B0823D8D67EF5592AF29258AE2ADFE9D;321.
+(rerunfilecheck)             Checksum: E257A602840FFD5C5E882CE4CF223296;422.
  ) 
 Here is how much of TeX's memory you used:
- 13762 strings out of 479334
- 210364 string characters out of 2857084
+ 13736 strings out of 479334
+ 210176 string characters out of 2857084
  726695 words of memory out of 3000000
- 30801 multiletter control sequences out of 15000+200000
- 412136 words of font info for 61 fonts, out of 3000000 for 9000
+ 30788 multiletter control sequences out of 15000+200000
+ 411633 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,8n,74p,741b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\jenst\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk> <C:\Users\jenst\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcbx1000.pk><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jenst/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jenst/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jenst/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/jen
-st/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/U
-sers/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
-fb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr17.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr5.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jenst/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FYS-MEK-prosjekt.pdf (32 pages, 1188247 bytes).
+ <C:\Users\jenst\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx
+1000.pk><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jenst/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/jenst/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/jenst/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/j
+enst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17
+.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr5.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr7.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/jenst/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on FYS-MEK-prosjekt.pdf (32 pages, 1222995 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 157 named destinations out of 1000 (max. 500000)
- 198 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 412 PDF objects out of 1000 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 

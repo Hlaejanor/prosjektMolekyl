@@ -6,30 +6,33 @@ Created on Sun Mar 14 15:48:07 2021
 """
 import matplotlib.pyplot as plt
 import numpy as np
-import copy as copy
+
 from MolecularDynamics import MDFileWriter
 from sys import exit
-
+T = 100
 n = 100
+queCounter  = 0
 class Que:
-    
-    def __init__(self, prevQue, a, b, u, T, initialPos = None, queName = ""):
+    def __init__(self, prevQue, a, b, u, T, initialPos = None, queName = None):
+        global queCounter
         self.H = None
+        self.A = None
+        self.B = None
+        if queName is None:
+            queName = f"queLay{queCounter}"
+            queCounter += 1
         self.queName = queName
         self.Ataken = True
         self.Btaken = True
         self.Htaken = True
         self.x = np.array([[0., 0., 0.] for i in range(T)]) # Position
-        self.nextQue = None
+        
         if prevQue is None and initialPos is not None:
             self.pos = initialPos
         else:
             self.prevQue = prevQue
             self.pos = prevQue.pos + prevQue.A
             prevQue.nextQue = self
-        
-        if a is None:
-            raise Exception("attempting to set A as None in constructor")
         
         self.setA(a)
         self.setB(b)
@@ -40,8 +43,46 @@ class Que:
         if u[x][y][x] != None :
             raise Exception(f"Cannot create queue at {[x, y, z]}, already occupied slot in universe")
         u[x][y][z] = self
+   
+    def swap(self):
+       if self.Btaken and not self.Ataken:
+           print(f"{self.queName} A -> B")
+           self.B = self.A
+           self.Btaken = False
+           self.Ataken = True
+       elif self.Htaken and not self.Btaken:
+           print(f"{self.queName} B->H {self.B} ")
+           self.H = self.B
+           self.Btaken = True
+           self.Htaken = False
+       elif self.Ataken and not self.Htaken:
+           print(f"{self.queName} H->A")
+           self.A = self.H
+           self.Ataken = False
+           self.Htaken = True
+       else:
+           raise Exception("Couldn't swap {self.queName} A and B empty")
         
-        
+    
+     
+    def read(self):
+        x, y, z = self.pos - self.A
+        rf = u[x][y][z]
+        if rf is None:
+            self.setB(self.getA())
+            
+        elif self.ATaken:
+            self.setA(rf.getG())
+        else:
+            self.setB(rf.getH())
+                
+    
+    def getNext(self):
+        x, y, z = self.pos + self.A
+        s = u[x][y][z]
+       
+        return s
+    
     def readA(self):
         if self.Ataken:
             return None
@@ -54,7 +95,14 @@ class Que:
         else:
             return self.B
     
-    def setHold(self, v):
+    def readH(self):
+        if self.Htaken:
+            return None
+        else:
+            return self.H
+    
+    
+    def setH(self, v):
         if v is None:
             print(f"Slot Hold remains open")
             self.Htaken = True
@@ -63,7 +111,7 @@ class Que:
             self.Htaken = False
         else:
             raise Exception("Information loss - trying to overwrite Hold")
-    def getHold(self):
+    def getH(self):
         if self.Htaken:
             return None
         else:
@@ -74,19 +122,22 @@ class Que:
             return None
         else:
             self.Ataken = True
-            return self.A
+            return self.A.copy()
         
     def getB(self):
        if self.Btaken:
             return None
        else:
             self.Btaken =True
-            return self.B
+            return self.B.copy()
     def setB(self, v):
         if v is None:
             print(f"Slot B remains open")
             self.Btaken = True
         elif self.Btaken is True:
+            if v is None:
+                print(f"Problem : Trying to set b value as none")
+                raise Exception("Should never try to set value to be None")
             self.B = v
             self.Btaken = False
         else:
@@ -96,114 +147,52 @@ class Que:
             print(f"Slot A remains open")
             self.Ataken = True
         elif self.Ataken is True:
+            if v is None:
+                print(f"Problem : Trying to set b value as none")
+                raise Exception("Should never try to set value to be None")
             self.A = v
             self.Ataken = False
         else:
             raise Exception("Information loss - trying to overwrite A")
   
-    def passItOn2(self, u,  b = None):
-        
-        x, y, z = self.pos + self.A
-        uNextQue = u[x][y][z]
-        #print(f"Calling passItOn on {self.queName} pos {self.pos}")
-        if uNextQue is None:
-            
-            print(f"{self.queName} - Next is none, need que. Writing {b} to hold")
-            self.setHold(b)
-        else:
-            if uNextQue is self :
-                raise Exception("Linking error - unext is same as self")
-            if uNextQue is not self.nextQue:
-                print(f"Collission or linking error")
-                if self.nextQue is None:
-                    print(f"The problem is that the nextQue is not set. UnextQue is {uNextQue.queName}")
-                elif uNextQue is None:
-                    print(f"The problem is that the next thing in the universe is None")
-                else:
-                    print(f"Universe says next que is {uNextQue.queName}, but linking says next Que is {self.nextQue.queName}")
-                exit()
-            print(f"Passing from {self.queName} to {uNextQue.queName}")
-            uNextQue.passItOn2(u, self.getB())
-            print("what aoubt  this right before?")
-            self.setB(b)
-    
-          
-    def secondPass2(self, u, t, recycleThisQue,  b = None):
-        #u is universe
-        # t is current time
-        # the gobbled que to be recycled
-        # b the queue being pushed forward
-      
-        x, y, z = self.pos + self.A
-        uNextQue = u[x][y][z]
-        if uNextQue is None:
-            print("EVENT")
-            print(f"Determines where the next que is laid {self.queName}")
-            print(f"Laying the recylced {recycleThisQue.queName}")
-            print(f"Current position of {self.queName} is {self.pos}, a is {self.A}")
-            print(f"Next position of {recycleThisQue.queName} is { [x, y, z] }")
-            xl, yl, zl = recycleThisQue.pos #The old coordinate for this que
-            u[xl][yl][zl]  = None # Remove the reference to this que from universe at old position
-            u[x][y][z] = recycleThisQue #Create new reference in u
-            recycleThisQue.pos = [x, y, z]
-            recycleThisQue.setA(self.getHold()) # Apply the values from memory into recycled que
-            print(f"Setting b at {recycleThisQue.queName} at pos {recycleThisQue.pos}")
-            #recycleThisQue.setB(b) # Allow the queue to push into the new lay
-            recycleThisQue.nextQue = None
-            self.nextQue = recycleThisQue # Linked list maintenance
-            recycleThisQue.prevQue = self # Linked list maintenance
-            recycleThisQue.x[t] = [x, y, z]
-        elif uNextQue is not None:
-           print(f"We want to push from {self.queName} B:{self.readB()} into {self.nextQue.queName}")
-           if uNextQue is self:
-               raise Exception("Linking error")
-           self.nextQue.secondPass2(u, t, recycleThisQue, self.getB()) # TEmpties the B and passes it on
-           self.x[t] = copy.copy(self.pos)
-           print(f"We want tor write B {self.readB()} {self.queName} at pos {self.pos}")
-           self.setB(b)  # notice that getB() is used in both branches of if, the B is always emptied
-        print(f"{self.queName} - {self.readA()} , {self.readB()}")
-        
+    def passOver(self):
+        que = self
+        # First pass moves into hold position, freeing up the B slot
+        while que is not None:
+            print(f"Pass 1 on {que.queName} H:{que.Htaken} A:{que.Ataken} B:{que.Btaken}")
+            que.swap() # Prepare read slot to the pass slot
+            print(f"Pass 1 after swap, on {que.queName} H:{que.Htaken} A:{que.Ataken} B:{que.Btaken}")
+            x, y, z = que.pos + que.A
+            nextQue = u[x][y][z]
+            if nextQue is None:
+                print(f"{que.queName} is currently Head - laying new que")
+                nextQue = Que(que, None, None, u, T)
+                break
+            u[x][y][z]= nextQue
+            que = nextQue
 
-    
-    def passItOn(self, u, b = None):
-        x, y, z = self.pos + self.A
-        uNextQue = u[x][y][z]
-        
-        if uNextQue is None:
-            print(f"{self.queName} finds no que at {[x, y, z]}, lays one:")
-            que = Que(self, self.getB(), None, u, None, "newQue")
-            self.setB(b)
-           
-            self.nextQue = que
-        elif uNextQue is not self.nextQue:
-            print(f"We have {uNextQue.queName} vs {self.nextQue.queName}")
-            self.nextQue = uNextQue #                   Information is lost
-            print(f"We have exchange. Will use the next value")
-            self.nextQue.passItOn(u, self.getB())
-            self.setB(b)
-        else:
-            self.nextQue.passItOn(u, self.getB())
-            self.setB(b)
-            
-         
-    def secondPass(self, u, recycleThisQue,  b = None):
-       
-        
-        x, y, z = self.pos + self.A
-        uNextQue = u[x][y][z]
-       
-        if uNextQue is not None:
-           self.nextQue.secondPass(u, recycleThisQue, self.getB())
-        print("is this right before?")
-        self.setB(b)
-        print(f"{self.queName} - {self.readA()} , {self.readB()}")
-        
+        print(f"From {self.queName} to {self.queName}")
+        #Second pass pushes from Hold position into the receiving
+        que = self
+        while que is not None:
+            print(f"Pass 2 on {que.queName} H:{que.Htaken} A:{que.Ataken} B:{que.Btaken}")
+            x, y, z = que.pos + que.A
+            nextQue = u[x][y][z]
+            if nextQue is None:
+                break
+            elif nextQue.Ataken:
+                nextQue.setA(que.getH())
+            else:
+                nextQue.setB(que.getH())
+            que = nextQue
+            #This leaves the self que emtpy in both A and B.
+   
 
 u =  [[[None for k in range(n)] for j in range(n)] for i in range(n)]
 
 def getOrientationStrByVector(ns):
     if ns is None:
-        return "none"
+        return None
     if ns[0] == 1  and  ns[1] == 0  and  ns[2] == 0:
         return "right"
     if ns[0] == -1  and  ns[1] == 0  and  ns[2] == 0:
@@ -249,7 +238,7 @@ def getOrientationByName(ns):
 def setPath(avgSegmentLength, segments):
 	
 	startPos = [3, 3, 3]
-	currPos = copy.copy(startPos)
+	currPos = startPos.copy()
 	segSymb = np.zeros(segments)
 	segLen = int(np.zeros(np.random()*avgSegmentLength)+0.5)
 	segSym += np.randInt(0, 6) 
@@ -263,7 +252,7 @@ def setPath(avgSegmentLength, segments):
 				print(f"Self collission at {x}, {y}, {z}. ")
 				currPos -= orient
 				break
-			u[x][y][z] = copy.copy(orient)
+			u[x][y][z] = orient.copy()
 
 
 class Gobbler:
@@ -272,7 +261,7 @@ class Gobbler:
         self.currentQue = que
         self.x = np.array([[0., 0., 0.] for i in range(T)]) # Position
         self.T = T
-        self.x[0] = copy.copy(self.currentPos)
+        self.x[0] = self.currentPos.copy()
         self.memory = np.array([0, 0, 0])
         print(f"Gobbler kommer! {self.currentPos}")
     	
@@ -286,22 +275,25 @@ class Gobbler:
         if self.currentQue is None:
             raise Exception("Gobbler ate into something that wasnt a que")
          
-        print(f"Reading universe {self.currentPos}  is {u[x][y][z]}")
+        print(f"Reading universe {self.currentPos}  is {u[x][y][z].queName}")
         
-        #self.memory = copy.copy(u[x][y][z][0])
-        #self.brickLayer(u)
-        self.currentQue.passItOn2(u, self.currentQue.getA())
-        self.currentQue.secondPass2(u, t, self.currentQue, self.currentQue.getB() )
         
-
+        print(f"GOBBLER SQUATS ON : {self.currentQue.queName}")
+#        self.currentQue.printRecursive()
+        #|a = self.currentQue.getA()
+        
+        self.currentQue.passOver()
+        
         #u[x][y][z] = None 
         print(f"--Gobbler moving from {self.currentQue.queName} at {self.currentPos} to {self.currentPos + self.currentQue.A}")
         
         if u[xn][yn][zn] is None:
-            raise Exception(f"Expected que at {[x, y, z]} was {u[x][y][z]}. Gobbler moving into something that isnt a que")
+            raise Exception(f"Expected que at {[xn, yn, zn]} was {u[xn][yn][zn]}. Gobbler moving into something that isnt a que")
         self.currentPos = [xn, yn, zn]
-        #self.currentQue  = u[xn][yn][zn] 
-        self.x[t] = copy.copy(self.currentPos)
+        self.currentQue  = u[xn][yn][zn] 
+        self.x[t] = self.currentPos.copy()
+        #self.currentQue.printRecursive()
+
         
          
         
@@ -382,26 +374,32 @@ def test1():
     
     queList =[que1, que2]
 
-    assert getOrientationStrByVector(que1.A) == "up", f"Que 1 A should be [0, 1, 0] was {que1.A}"
+    assert getOrientationStrByVector(que1.A) == "up", f"Que 1 A should be [0, 1, 0] was {que1.readA()}"
      
-    assert getOrientationStrByVector(que1.B) == "up", f"Que 1 B should be [0, 1, 0] was {que1.B}"
+    assert getOrientationStrByVector(que1.B) == "up", f"Que 1 B should be [0, 1, 0] was {que1.readB()}"
    
-    assert getOrientationStrByVector(que2.A) == "up", f"Que 1 A should be [0, 1, 0] was {que1.A}"
+    assert getOrientationStrByVector(que2.A) == "up", f"Que 1 A should be [0, 1, 0] was {que1.readA()}"
     
-    assert getOrientationStrByVector(que2.B) == "up", f"Que 1 B should be [0, 1, 0] was {que1.B}"
+    assert getOrientationStrByVector(que2.B) == "up", f"Que 1 B should be [0, 1, 0] was {que1.readB()}"
 
-    que1.passItOn2(u, que1.getA())
+    que1.passOver()
+    
+    assert getOrientationStrByVector(que1.readA()) is None, f"Que 1 A should be none was {que1.readA()}"
+    assert getOrientationStrByVector(que1.readB()) == "up",   f"Que 1 B should be up was {que1.readB()}"
+   
+    # assert que1 is queRec, f"Que 3 and 1 should be the same object"
+    assert getOrientationStrByVector(que1.readA()) is None, f"Que 1 A should be None  was {que1.readA()}"
+    assert getOrientationStrByVector(que1.readB()) == "up", f"Que 1 B should be [0, 1, 0] was {que1.readB()}"
+   
+    assert getOrientationStrByVector(que3.readB()) == "up", f"Que 3 B should up none was {que3.readB()}"
 
-   
-    assert getOrientationStrByVector(que1.readA()) == "none", f"Que 1 A should be none was {que1.A}"
-    assert getOrientationStrByVector(que1.readB()) == "up", f"Que 1 B should be up was {que1.B}"
-   
     
-    que1.nextQue.secondPass2(u, 1, que1, que1.getB())
-    queRec = que5.nextQue
-    
-    assert que1 is queRec, f"Que 3 and 1 should be the same object"
-    assert getOrientationStrByVector(que1.readA()) == "up", f"Que 1 A should be [0, 1, 0] was {que1.readA()}"
+    assert getOrientationStrByVector(que1.readB()) is None,   f"Que 1 B should be none was {que1.readB()}"
+    assert getOrientationStrByVector(que1.readA()) is None,   f"Que 1 A should be none was {que1.readA()}"
+    assert getOrientationStrByVector(que1.readH()) == "up",   f"Que 1 A should be none was {que1.readH()}"
+   
+    # assert que1 is queRec, f"Que 3 and 1 should be the same object"
+    assert getOrientationStrByVector(que1.readA()) is None, f"Que 1 A should be None  was {que1.readA()}"
     assert getOrientationStrByVector(que1.readB()) == "up", f"Que 1 B should be [0, 1, 0] was {que1.readB()}"
    
     assert getOrientationStrByVector(que3.readB()) == "up", f"Que 3 B should up none was {que3.readB()}"
@@ -410,14 +408,14 @@ def test1():
 
 
 def test2():
-    T= 20
+    T= 2
     x0, y0, z0 = [15, 15, 15]
     
     que1 = Que(None, getOrientationByName("right"), getOrientationByName("up"), u, T, [x0, y0, z0], "InitialQue")
     que2 = Que(que1, getOrientationByName("right"), getOrientationByName("up"), u, T,  None, "seconQue")
     que3 = Que(que2, getOrientationByName("right"), getOrientationByName("up"), u, T,  None, "thirdque")
-    que4 = Que(que3, getOrientationByName("right"), getOrientationByName("up"), u, T,  None, "fourthque")
-    que5 = Que(que4, getOrientationByName("right"), getOrientationByName("up"), u, T,  None, "fifthque")
+    que4 = Que(que3, getOrientationByName("up"), getOrientationByName("up"), u, T,  None, "fourthque")
+    que5 = Que(que4, getOrientationByName("left"), getOrientationByName("up"), u, T,  None, "fifthque")
     
    
     queList =[que1, que2, que3, que4, que5]
@@ -435,7 +433,7 @@ def test2():
 def test3():
   
     N = 3
-    T= 20
+    T= 1
     x0, y0, z0 = [15, 15, 15]
     queList = []
     path = [[5, "up"]]
@@ -460,7 +458,7 @@ def test3():
     gobbler.plotPosition()
     
     
-test2()
+test1()
 	
 	
 

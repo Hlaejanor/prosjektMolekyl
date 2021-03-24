@@ -27,7 +27,7 @@ class Particle:
         self.x[0] = x0  # Initial position
         self.d[0] = [0., 0., 0.]  # Displacement vector from initialPosition
         self.a[0] = np.array([0., 0., 0.]) #
-       
+        print(f"Creating {self.type} particle initialized at {self.x[0]},, speed {self.v[0]}")
        
     ### Will reflect the particle of the wall
     def swap(self, n):

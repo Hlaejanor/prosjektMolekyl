@@ -11,7 +11,7 @@ from MolecularDynamics import constants
 from MolecularDynamics import MDGenerators
 
 def MoveToCentreOfBox(particles):
-    c = [constants.box /2,constants.box /2,constants.box /2, ]
+    c = [constants.box /2,constants.box /2,constants.box /2]
     
     for part in particles:
         part.x[0] += c

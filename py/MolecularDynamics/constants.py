@@ -24,7 +24,7 @@ epsEV = 1.0318 * 10**(-2) #Argon Electron Volt
 kBoltz = 8.6173*10**(-5)
 
 
-box = 15
+box = 40
 
 #Simulation specifics
 cutOffRange = 3* sig #

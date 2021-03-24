@@ -44,7 +44,7 @@ def barchart(data,  xLabel, yLabel, chartName, filename = "barChart"):
     strLabels = []
     for lb in xLabel[0]:
         strLabels.append(f"{lb:11.1f}")
-    plt.bar(strLabels, data, align='center', alpha=0.5)
+    plt.bar(strLabels, data, align='center')
     plt.title(chartName)
    
     #plt.xticks(xLabel[0], strLabels)
@@ -53,10 +53,11 @@ def barchart(data,  xLabel, yLabel, chartName, filename = "barChart"):
     plt.xlabel(xLabel[1])
     
     
-    plt.show()
+  
     
     print(f"Saving file {filename}.jpg")
     plt.savefig(f'{filename}.jpg')
+    plt.show()
    
 
 def plotMeanSquaredDisplacement(particles, t, N, eps, chartName, plotDiffusionConstant = False,  filename = "meanSquaredDisplamcent"):

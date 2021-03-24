@@ -356,10 +356,8 @@ We are initializing at 180 Kelvin and getting this result. This is close to the 
 \textbf{Run a simulation with e.g. 256 atoms (more if you can), and plot the velocity autocorrelation as
 a function of time. Compare with figure 4 of the paper}
 
-I have been able t make the following plot with Velocity Autocorrelation \ref{fig:4bii}. Compared to the Landmark study from 1964, the overall exponential fallof is the same, and stabilizing at close to 0 is also similar. However, there are some differences:
-\begin{itemize}
-\item My Autocorrelation does not fall below 0
-\item Characteristic time is not scaled
+I have been able t make the following plot with Velocity Autocorrelation \ref{fig:4bii}. Compared to the Landmark study from 1964, the overall exponential fallof is the same, and stabilizing at close to 0 is also similar. For some reason I have not been ablet o understand, my autocorrelation does not go below 0 at any point.
+
 \end{itemize}
 
 \begin{figure}
@@ -475,9 +473,9 @@ Calculating the diffusion constant. It is not possible to compare a chart of th 
 \textbf{Run a simulation with as many atoms for as long as you can. Calculate the radial distribution
 function g(r), plot the result and compare with figure 2 of [1].}
 
-We use 12 bins, and bin the atoms in a histogram based on their distance form each other. Simulation are initialized at 190 Kelvin, time is given by  $ $seconds for 864 particles. 
+We use 10 bins, and bin the results from $0$ to $5\sigma$. The atoms in a histogram based on their distance form each other. Simulation are initialized at 190 Kelvin, time is given by  $ $seconds for 864 particles. 
 
-I am not able to reproduce the sinusoid probability density in Rahmans paper. It is possible, that this is due to the high number of particles and a relatively small box. With 864 particles and a $15^3 \sigma$ enclosure, each particle has only $3.95 \sigma^3$ of space, putting the mean distance between particles at $3.95 \sigma$. This will skew the distribution toward the left, possibly explaining the deviation from Rahman.
+I am not able to reproduce the sinusoid beyond the two initial peaks at $3.7Å$ and $7.0 Å$, however the results seem to match quite well. Attempting to use different temperatures to see if this impacts the RDF plot did not show any significant alteration of the distance distributions, but affected the counts. This suggest that under higher temperatures, the distribution function becomes more skewed. 
 
 
 
@@ -485,8 +483,8 @@ I am not able to reproduce the sinusoid probability density in Rahmans paper. It
 \begin{figure}[h!]
         \centering 
         %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
-        \includegraphics[scale=0.6]{./py/4di_rdf_bar.jpg} 
-        \caption{4d) i : Counts for bins.  }
+        \includegraphics[scale=0.6]{./py/RDF_Task4_di_everything_hot.jpg} 
+        \caption{Temp : 300K (intialized), periodic boundaries of 40 $\sigma$, initialized at $1.7\sigma$ distance }
         %Label gjør det enkelt å referere til ulike bilder.
         \label{fig:4di_rdf_plot}
 \end{figure}
@@ -495,21 +493,21 @@ I am not able to reproduce the sinusoid probability density in Rahmans paper. It
 \begin{figure}[h!]
         \centering 
         %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
-        \includegraphics[scale=0.6]{./py/4di_rdf_plot.jpg} 
-        \caption{4d) i : Radial distribution function plot }
-        %Label gjør det enkelt å referere til ulike bilder.
+        \includegraphics[scale=0.6]{./py/RDF_Task4_di_everything.jpg} 
+        \caption{Temp : 190K (initialized), periodic boundaries of 40 $\sigma$, initialized at $1.7\sigma$ distance }     %Label gjør det enkelt å referere til ulike bilder.
         \label{fig:4di_rdf_plot}
 \end{figure}
 
 \begin{figure}[h!]
         \centering 
         %Scale angir størrelsen på bildet. Bildefilen må ligge i samme mappe som tex-filen. 
-        \includegraphics[scale=0.6]{./py/Rahman2.jpg} 
+        \includegraphics[scale=0.9]{./py/Rahman2.jpg} 
         \caption{4d) i : Rahman fig 2 }
         %Label gjør det enkelt å referere til ulike bilder.
         \label{fig:Rahman2}
 \end{figure}
 
-Python code is available as zip file.
-
+\section{Python code}
+Python code is available at : 
+\href{https://github.com/herreovertidogrom/prosjektMolekyl}{Github repository} 
 \end{document}
