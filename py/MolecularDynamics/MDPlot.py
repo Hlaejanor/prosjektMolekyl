@@ -31,7 +31,7 @@ def plot(series, t, N,  chartName, xlabels, yLabel, filename = "genericPLot"):
     plt.ylabel(yLabel)
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./img/{filename}.jpg')
     plt.show()
 
 
@@ -56,7 +56,7 @@ def barchart(data,  xLabel, yLabel, chartName, filename = "barChart"):
   
     
     print(f"Saving file {filename}.jpg")
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
    
 
@@ -74,7 +74,7 @@ def plotMeanSquaredDisplacement(particles, t, N, eps, chartName, plotDiffusionCo
     plt.ylabel(f"Mean sq. disp {yLabel}")
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
     if plotDiffusionConstant :
         plt.title("Diffusion constant")
@@ -101,7 +101,7 @@ def plotTemperature(particles, t, N, chartName, filename = "plotTemperature"):
     plt.ylabel('Kelvin (K)')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
     
 
@@ -148,7 +148,7 @@ def plotTemperature(particles, t, N, chartName, filename = "plotTemperature"):
     plt.ylabel('Kelvin (K)')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
     print(f"Finished plotting temperature filename {filename}")
     
@@ -176,7 +176,7 @@ def plotAllEnergies(particles, t, chartName, filename = "allEnergies"):
     plt.ylabel('energy')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
     
     
@@ -201,7 +201,7 @@ def plotShiftedPotentialDiff(minDist, maxDist,  chartName, filename = "plotPoten
     plt.ylabel('force')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
 
 
@@ -222,7 +222,7 @@ def plotPotential(minDist, maxDist,  chartName, filename = "plotPotential"):
     plt.ylabel('force')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     plt.show()
 
 ## Compute distance between two particles and plot
@@ -240,7 +240,7 @@ def plotDistanceBetween(t, chartName, p1, p2, filename = "two-particle-distance"
     plt.ylabel('distance (sigmas)')
     plt.legend()
     
-    plt.savefig(f'{filename}.jpg')
+    plt.savefig(f'./fig/{filename}.jpg')
     
 ## Plot the x component of a specific particle 
 def plotParticle(t, p):
