@@ -13,7 +13,7 @@ def UtoXYZFileBulk(u, gobblers, filename, N, nthFrame  = 1):
         if nthFrame > 1:
             print(f"Writing : {nthFrame}-th frames")
         frame = 0
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             size = len(u)
             while frame < N:
                 
@@ -34,7 +34,7 @@ def UtoXYZFile(gobblers, filename, N, nthFrame  = 1):
         if nthFrame > 1:
             print(f"Writing : {nthFrame}-th frames")
         frame = 0
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             size = len(u)
             while frame < N:
                 
@@ -56,7 +56,7 @@ def WriteXYZFile2(particles, filename, N, nthFrame  = 1):
         if nthFrame > 1:
             print(f"Writing : {nthFrame}-th frames")
         frame = 0
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             while frame < N:
                
                 xyz_file.write(f"{len(particles)}\n")
@@ -73,7 +73,7 @@ def WriteXYZFile2(particles, filename, N, nthFrame  = 1):
 ## Write  YZ files
 def WriteXYZFile(particles, filename, N, nthFrame = 1):
         print(f"Writing file: {filename}")
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             frame  = 0
             while frame < N:
                 xyz_file.write(f"{len(particles)}\n")
@@ -89,7 +89,7 @@ def WriteXYZFile(particles, filename, N, nthFrame = 1):
 def WriteXYZFile3(particles, filename, N):
         print(f"Writing last frame: {filename}")
         count = len(particles)
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             for i in range(0, 2):
                 xyz_file.write(f"{count}\n")
                 xyz_file.write("Frame 0\n")
@@ -103,7 +103,7 @@ def WriteXYZFile3(particles, filename, N):
 ## Write  YZ files
 def WriteLastFrame(particles, filename, N):
         print(f"Writing last frame: {filename}")
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
      
             xyz_file.write(f"{len(particles)}\n")
             xyz_file.write(f"Comments for frame {N}\n")
@@ -118,7 +118,7 @@ def WriteLastFrame(particles, filename, N):
 ## Write  YZ files
 def WriteEverything(particles, filename, N):
         print(f"Writing everythin : {filename}")
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
             for i in range(0, N-1):
                 xyz_file.write(f"{len(particles)}\n")
                 xyz_file.write(f"Frame {i}\n")
@@ -135,7 +135,7 @@ def WriteEverything(particles, filename, N):
 ## Write  YZ files
 def WriteFirstFrame(particles, filename, N):
         print(f"Writing first frame: {filename}")
-        with open(f"{filename}.xyz", 'w') as xyz_file:
+        with open(f"./xyz/{filename}.xyz", 'w') as xyz_file:
           
                 xyz_file.write(f"{len(particles)}\n")
                 xyz_file.write(f"Comments for frame {N}\n")
@@ -158,7 +158,7 @@ def ReadEverything(filename, N, mass = 1):
     print(f"Reading remaining positions, velocities and acceleration from : {filename}")
     i = 0
     t =0
-    with open(f"{filename}.xyz", 'r') as xyz_file:
+    with open(f"./xyz/{filename}.xyz", 'r') as xyz_file:
         for line in xyz_file:
             line_data = line.split()
             values = len(line_data)
@@ -192,7 +192,7 @@ def ReadInitialConditions(filename, N, mass):
     index = 0
     startedReadingFirstFrame = False
     print(f"Reading positions fomr (will stop after first frame): {filename}")
-    with open(f"{filename}.xyz", 'r') as xyz_file:
+    with open(f"./xyz/{filename}.xyz", 'r') as xyz_file:
         for line in xyz_file:
             line_data = line.split()
             values = len(line_data)
